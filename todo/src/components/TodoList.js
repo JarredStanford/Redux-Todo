@@ -26,12 +26,16 @@ class TodoList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="list">
         {this.props.todos.map((todo, index) => {
           console.log(index);
           console.log(this.props.todos);
           return (
-            <p onClick={() => this.toggleComplete(index)} key={index}>
+            <p
+              onClick={() => this.toggleComplete(index)}
+              className={todo.completed === true ? "complete" : ""}
+              key={index}
+            >
               {todo.task}
               {todo.completed}
             </p>
