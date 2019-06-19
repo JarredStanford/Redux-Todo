@@ -1,4 +1,4 @@
-import { ADDTODO, TOGGLETODO } from "../actions/index";
+import { ADDTODO, TOGGLETODO, DELETETODO } from "../actions/index";
 
 const initialState = {
   todos: [
@@ -26,6 +26,11 @@ export default (state = initialState, action) => {
             };
           } else return todo;
         })
+      };
+    case DELETETODO:
+      return {
+        ...state,
+        todos: state.todos.filter((todo, index) => action.payload !== index)
       };
 
     default:
